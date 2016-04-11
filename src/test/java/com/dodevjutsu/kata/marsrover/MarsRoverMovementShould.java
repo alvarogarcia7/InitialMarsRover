@@ -31,6 +31,12 @@ public class MarsRoverMovementShould {
         assertThat(rover.receive("l"), is(new MarsRover(0, 1, "W")));
     }
 
+
+    @Test
+    public void turn_right_pointing_north() throws Exception {
+        assertThat(rover.receive("r"), is(new MarsRover(0, 1, "E")));
+    }
+
     @Test
     public void fail_when_a_command_is_not_known() throws Exception {
         Exception exception = null;
