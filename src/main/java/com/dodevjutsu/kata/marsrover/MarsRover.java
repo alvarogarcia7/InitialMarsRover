@@ -13,11 +13,7 @@ public class MarsRover {
         if (commands.equals("b")) {
             this.point = point.decreaseY();
         } else if (commands.equals("f")) {
-            if (direction.equals(Direction.from("N"))) {
-                this.point = point.increaseY();
-            } else if (direction.equals(Direction.from("S"))) {
-                this.point = point.decreaseY();
-            }
+            moveForward();
         } else if (commands.equals("l")) {
             this.direction = direction.left();
         } else if (commands.equals("r")) {
@@ -27,6 +23,10 @@ public class MarsRover {
         }
 
         return this;
+    }
+
+    private void moveForward() {
+        point = point.add(direction.forward());
     }
 
 

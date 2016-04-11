@@ -51,4 +51,13 @@ public class Direction {
         }
         throw new RuntimeException("");
     }
+
+    public Delta forward() {
+        if (this.equals(Direction.from("N"))) {
+            return Delta.from(0, 1);
+        } else if (this.equals(Direction.from("S"))) {
+            return Delta.from(0, -1);
+        }
+        return Delta.none();
+    }
 }

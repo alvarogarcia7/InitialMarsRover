@@ -34,4 +34,8 @@ public class Point {
     Point increaseY() {
         return new Point(x, y + 1);
     }
+
+    public Point add(Delta delta) {
+        return new Point(x + delta.x(), y + delta.y());
+    }
 }
