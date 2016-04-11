@@ -2,11 +2,11 @@ package com.dodevjutsu.kata.marsrover;
 
 public class MarsRover {
     private Point point;
-    private Direction directionType;
+    private Direction direction;
 
     public MarsRover(Point point, String direction) {
         this.point = point;
-        this.directionType = Direction.from(direction);
+        this.direction = Direction.from(direction);
     }
 
     public MarsRover receive(String commands) {
@@ -15,9 +15,9 @@ public class MarsRover {
         } else if (commands.equals("f")){
             this.point = point.increaseY();
         } else if (commands.equals("l")) {
-            this.directionType = Direction.from("W");
+            this.direction = Direction.from("W");
         } else if (commands.equals("r")) {
-            this.directionType = Direction.from("E");
+            this.direction = Direction.from("E");
         } else {
             throw new RuntimeException("this command is not known");
         }
@@ -34,14 +34,14 @@ public class MarsRover {
         MarsRover marsRover = (MarsRover) o;
 
         if (point != null ? !point.equals(marsRover.point) : marsRover.point != null) return false;
-        return directionType != null ? directionType.equals(marsRover.directionType) : marsRover.directionType == null;
+        return direction != null ? direction.equals(marsRover.direction) : marsRover.direction == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = point != null ? point.hashCode() : 0;
-        result = 31 * result + (directionType != null ? directionType.hashCode() : 0);
+        result = 31 * result + (direction != null ? direction.hashCode() : 0);
         return result;
     }
 }
