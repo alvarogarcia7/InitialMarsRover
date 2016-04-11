@@ -8,7 +8,11 @@ public class MarsRover {
     }
 
     public MarsRover receive(String commands) {
-        this.y++;
+        if (commands.equals("b")) {
+            this.y--;
+        } else {
+            this.y++;
+        }
         return this;
     }
 
