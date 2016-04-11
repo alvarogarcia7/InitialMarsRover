@@ -29,9 +29,12 @@ public class Direction {
     public Direction right() {
         if(this.equals(Direction.from("N"))) {
             return Direction.from("E");
-        } else {
+        } else if (this.equals(Direction.from("E"))) {
             return Direction.from("S");
+        } else if (this.equals(Direction.from("S"))) {
+            return Direction.from("W");
         }
+        throw new RuntimeException("");
     }
 
     public Direction left() {
