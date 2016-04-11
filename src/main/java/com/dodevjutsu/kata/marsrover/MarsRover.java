@@ -49,11 +49,4 @@ public class MarsRover {
         return result;
     }
 
-    public int getY() {
-        return point.y;
-    }
-
-    public void setY(int y) {
-        this.point.y = y;
-    }
 }
