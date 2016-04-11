@@ -18,8 +18,26 @@ public class Command {
     public static Command from(String value) {
         if (value.equals("l")) {
             return Command.left();
+        } else if (value.equals("r")) {
+            return Command.right();
+        } else if (value.equals("f")) {
+            return Command.forward();
+        } else if (value.equals("b")) {
+            return Command.backward();
         }
 
         return new Command(value);
+    }
+
+    public static Command backward() {
+        return new Command("b");
+    }
+
+    public static Command forward() {
+        return new Command("f");
+    }
+
+    public static Command right() {
+        return new Command("r");
     }
 }
