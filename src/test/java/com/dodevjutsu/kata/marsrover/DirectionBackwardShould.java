@@ -11,7 +11,7 @@ public class DirectionBackwardShould {
     public void when_facing_north() throws Exception {
         assertThat(actFacing("N"), is(delta(0, -1)));
     }
-    
+
     @Test
     public void when_facing_east() throws Exception {
         assertThat(actFacing("E"), is(delta(-1, 0)));
