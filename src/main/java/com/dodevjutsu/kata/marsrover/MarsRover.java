@@ -33,12 +33,7 @@ public class MarsRover {
     public void setPoint(Point point) {
         this.point = point;
     }
-
-
-    public void setDirection(String direction) {
-        this.directionType = Direction.from(direction);
-    }
-
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
