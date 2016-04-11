@@ -56,7 +56,7 @@ public class MarsRoverMovementShould {
     @Test
     public void turn_left_in_any_case() throws Exception {
         final Direction direction = Mockito.mock(Direction.class);
-        MarsRover rover = new MarsRover(null, direction);
+        MarsRover rover = new MarsRover(null, direction, new CommandParser());
 
         rover.receive("l");
 
@@ -66,7 +66,7 @@ public class MarsRoverMovementShould {
     @Test
     public void turn_right_in_any_case() throws Exception {
         final Direction direction = Mockito.mock(Direction.class);
-        MarsRover rover = new MarsRover(null, direction);
+        MarsRover rover = new MarsRover(null, direction, new CommandParser());
 
         rover.receive("r");
 
@@ -76,7 +76,7 @@ public class MarsRoverMovementShould {
     @Test
     public void backward_in_any_case() throws Exception {
         final Direction direction = Mockito.mock(Direction.class);
-        MarsRover rover = new MarsRover(Mockito.mock(Point.class), direction);
+        MarsRover rover = new MarsRover(Mockito.mock(Point.class), direction, new CommandParser());
 
         rover.receive("b");
 
@@ -87,12 +87,24 @@ public class MarsRoverMovementShould {
     @Test
     public void forward_in_any_case() throws Exception {
         final Direction direction = Mockito.mock(Direction.class);
-        MarsRover rover = new MarsRover(Mockito.mock(Point.class), direction);
+        MarsRover rover = new MarsRover(Mockito.mock(Point.class), direction, new CommandParser());
 
         rover.receive("f");
 
         verify(direction).forward();
     }
+
+    @Test
+    public void split_commands_in_several() throws Exception {
+        String commands="";
+        CommandParser splitter = Mockito.mock(CommandParser.class);
+        MarsRover rover = new MarsRover(null, null, splitter);
+
+        rover.receive(commands);
+
+        verify(splitter).split(commands);
+    }
+
 
     @Test
     public void fail_when_a_command_is_not_known() throws Exception {

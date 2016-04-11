@@ -4,7 +4,7 @@ public class MarsRover {
     private Point point;
     private Direction direction;
 
-    public MarsRover(Point point, Direction direction) {
+    public MarsRover(Point point, Direction direction, CommandParser splitter) {
         this.point = point;
         this.direction = direction;
     }

@@ -16,7 +16,7 @@ public class MarsRoverBuilder implements Builder<MarsRover>{
 
     @Override
     public MarsRover build() {
-        return new MarsRover(point, Direction.from(this.direction));
+        return new MarsRover(point, Direction.from(this.direction), new CommandParser());
     }
 
     public MarsRoverBuilder at(Point point) {
