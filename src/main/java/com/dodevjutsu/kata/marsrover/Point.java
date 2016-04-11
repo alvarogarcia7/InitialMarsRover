@@ -32,4 +32,8 @@ public class Point {
     void decreaseY() {
         this.y--;
     }
+
+    void increaseY() {
+        this.y++;
+    }
 }
