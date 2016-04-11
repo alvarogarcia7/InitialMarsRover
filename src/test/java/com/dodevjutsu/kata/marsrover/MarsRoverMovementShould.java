@@ -33,6 +33,11 @@ public class MarsRoverMovementShould {
     }
 
     @Test
+    public void move_forward_pointing_south() throws Exception {
+        assertThat(roverPointingAt(0, 0).facing("S").build().receive("f"), is(roverPointingAt(0, -1).facing("S").build()));
+    }
+
+    @Test
     public void turn_left_pointing_north() throws Exception {
         assertThat(rover.receive("l"), is(roverPointingAt(0, 1).facing("W").build()));
     }
