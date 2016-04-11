@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.fail;
 
 public class MarsRoverMovementShould {
 
@@ -29,4 +30,19 @@ public class MarsRoverMovementShould {
     public void turn_left_pointing_north() throws Exception {
         assertThat(rover.receive("l"), is(new MarsRover(0, 1, "W")));
     }
+
+    @Test
+    public void fail_when_a_command_is_not_known() throws Exception {
+        Exception exception = null;
+        try {
+            rover.receive("*");
+        } catch (Exception e) {
+            exception = e;
+        } finally {
+            if(null == exception){
+                fail("expected exception");
+            }
+        }
+    }
+
 }
