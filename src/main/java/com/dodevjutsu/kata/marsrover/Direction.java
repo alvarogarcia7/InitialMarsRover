@@ -11,10 +11,6 @@ public class Direction {
         return new Direction(value);
     }
 
-    public String value() {
-        return value;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
