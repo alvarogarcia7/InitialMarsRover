@@ -41,6 +41,11 @@ public class MarsRoverMovementShould {
     }
 
     @Test
+    public void turn_right_pointing_east() throws Exception {
+        assertThat(roverPointingAt(0, 1).facing("E").build().receive("r"), is(roverPointingAt(0, 1).facing("S").build()));
+    }
+
+    @Test
     public void fail_when_a_command_is_not_known() throws Exception {
         Exception exception = null;
         try {
