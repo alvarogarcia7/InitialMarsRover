@@ -2,10 +2,12 @@ package com.dodevjutsu.kata.marsrover;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.verify;
 
 public class MarsRoverMovementShould {
 
@@ -62,6 +64,16 @@ public class MarsRoverMovementShould {
     public void turn_left_pointing_west() throws Exception {
         final MarsRoverBuilder rover = roverPointingAt(0, 1);
         assertThat(rover.facing("W").build().receive("l"), is(rover.facing("S").build()));
+    }
+
+    @Test
+    public void turn_left_in_any_case() throws Exception {
+        final Direction direction = Mockito.mock(Direction.class);
+        MarsRover rover = new MarsRover(null, direction);
+
+        rover.receive("l");
+
+        verify(direction).left();
     }
 
     @Test
