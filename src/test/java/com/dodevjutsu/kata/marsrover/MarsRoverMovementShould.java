@@ -8,6 +8,8 @@ import org.mockito.Mockito;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.fail;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
 public class MarsRoverMovementShould {
@@ -104,6 +106,20 @@ public class MarsRoverMovementShould {
         rover.receive(commands);
 
         verify(splitter).split(commands);
+    }
+
+
+    @Test
+    public void execute_several_commands() throws Exception {
+        String COMMANDS = null;
+        CommandParser splitter = Mockito.mock(CommandParser.class);
+        final Point point = new Point(0, 0);
+        MarsRover rover = new MarsRover(point, Direction.from("N"), splitter);
+        doReturn(new Commands(Command.left(), Command.left())).when(splitter).split(anyString());
+
+        MarsRover result = rover.receive(COMMANDS);
+
+        assertThat(result, is(MarsRoverBuilder.aNew().facing("S").at(point).build()));
     }
 
 

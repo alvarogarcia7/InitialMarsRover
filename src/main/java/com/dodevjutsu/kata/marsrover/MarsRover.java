@@ -13,6 +13,7 @@ public class MarsRover {
 
     public MarsRover receive(String commands) {
         splitter.split(commands);
+
         if (commands.equals("b")) {
             point = point.add(direction.backward());
         } else if (commands.equals("f")) {
