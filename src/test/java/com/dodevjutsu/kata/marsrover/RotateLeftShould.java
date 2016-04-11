@@ -6,7 +6,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
-public class DirectionTurnLeftShould {
+public class RotateLeftShould {
 
     @Test
     public void when_pointing_north() throws Exception {
