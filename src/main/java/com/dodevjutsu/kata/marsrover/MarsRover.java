@@ -4,10 +4,6 @@ public class MarsRover {
     private Point point;
     private Direction directionType;
 
-    public MarsRover(int x, int y, String direction) {
-        this(new Point(x, y), direction);
-    }
-
     public MarsRover(Point point, String direction) {
         this.setPoint(point);
         this.setDirection(direction);
