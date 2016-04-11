@@ -11,20 +11,23 @@ public class MarsRover {
         this.splitter = splitter;
     }
 
-    public MarsRover receive(String commands) {
-        splitter.split(commands);
-
-        if (commands.equals("b")) {
-            point = point.add(direction.backward());
-        } else if (commands.equals("f")) {
-            point = point.add(direction.forward());
-        } else if (commands.equals("l")) {
-            this.direction = direction.left();
-        } else if (commands.equals("r")) {
-            direction = direction.right();
-        } else {
-            throw new RuntimeException("this command is not known");
+    public MarsRover receive(String commandsRepresentation) {
+        final Commands split = splitter.split(commandsRepresentation);
+        for (Command current : split.values()) {
+            String command = current.value();
+            if (command.equals("b")) {
+                point = point.add(direction.backward());
+            } else if (command.equals("f")) {
+                point = point.add(direction.forward());
+            } else if (command.equals("l")) {
+                this.direction = direction.left();
+            } else if (command.equals("r")) {
+                direction = direction.right();
+            } else {
+                throw new RuntimeException("this command is not known");
+            }
         }
+        ;
 
         return this;
     }

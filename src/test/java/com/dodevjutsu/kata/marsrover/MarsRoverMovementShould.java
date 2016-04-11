@@ -101,6 +101,7 @@ public class MarsRoverMovementShould {
     public void split_commands_in_several() throws Exception {
         String commands = "l";
         CommandParser splitter = Mockito.mock(CommandParser.class);
+        doReturn(new Commands(Command.left())).when(splitter).split(anyString());
         MarsRover rover = new MarsRover(null, Mockito.mock(Direction.class), splitter);
 
         rover.receive(commands);
@@ -111,7 +112,7 @@ public class MarsRoverMovementShould {
 
     @Test
     public void execute_several_commands() throws Exception {
-        String COMMANDS = null;
+        String COMMANDS = "ll";
         CommandParser splitter = Mockito.mock(CommandParser.class);
         final Point point = new Point(0, 0);
         MarsRover rover = new MarsRover(point, Direction.from("N"), splitter);
