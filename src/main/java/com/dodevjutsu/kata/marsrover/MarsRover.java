@@ -17,7 +17,11 @@ public class MarsRover {
         } else if (commands.equals("l")) {
             this.direction = Direction.from("W");
         } else if (commands.equals("r")) {
-            this.direction = Direction.from("E");
+            if(direction.equals(Direction.from("N"))) {
+                this.direction = Direction.from("E");
+            } else {
+                direction = Direction.from("S");
+            }
         } else {
             throw new RuntimeException("this command is not known");
         }
