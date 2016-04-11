@@ -6,7 +6,7 @@ public class MarsRover {
 
     public MarsRover(Point point, String direction) {
         this.setPoint(point);
-        this.setDirection(direction);
+        this.directionType = Direction.from(direction);
     }
 
     public MarsRover receive(String commands) {
@@ -15,9 +15,9 @@ public class MarsRover {
         } else if (commands.equals("f")){
             setPoint(getPoint().increaseY());
         } else if (commands.equals("l")) {
-            this.setDirection("W");
+            this.directionType = Direction.from("W");
         } else if (commands.equals("r")) {
-            this.setDirection("E");
+            this.directionType = Direction.from("E");
         } else {
             throw new RuntimeException("this command is not known");
         }
