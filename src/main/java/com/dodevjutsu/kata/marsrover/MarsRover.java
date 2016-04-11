@@ -35,11 +35,6 @@ public class MarsRover {
     }
 
 
-
-    public String getDirection() {
-        return directionType.value();
-    }
-
     public void setDirection(String direction) {
         this.directionType = Direction.from(direction);
     }
