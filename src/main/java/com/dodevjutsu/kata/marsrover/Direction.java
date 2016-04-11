@@ -57,6 +57,10 @@ public class Direction {
             return Delta.from(0, 1);
         } else if (this.equals(Direction.from("S"))) {
             return Delta.from(0, -1);
+        } else if (this.equals(Direction.from("W"))) {
+            return Delta.from(-1, 0);
+        } else if (this.equals(Direction.from("E"))) {
+            return Delta.from(1, 0);
         }
         return Delta.none();
     }
