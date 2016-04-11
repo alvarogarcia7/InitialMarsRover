@@ -12,8 +12,7 @@ public class MarsRover {
     }
 
     public MarsRover receive(String commandsRepresentation) {
-        final Commands split = splitter.split(commandsRepresentation);
-        for (Command current : split.values()) {
+        for (Command current : splitter.split(commandsRepresentation).values()) {
             String command = current.value();
             if (command.equals("b")) {
                 point = point.add(direction.backward());
