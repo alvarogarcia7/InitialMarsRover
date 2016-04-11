@@ -27,7 +27,7 @@ public class Direction {
     }
 
     public Direction right() {
-        if(this.equals(Direction.from("N"))) {
+        if (this.equals(Direction.from("N"))) {
             return Direction.from("E");
         } else if (this.equals(Direction.from("E"))) {
             return Direction.from("S");
@@ -40,7 +40,7 @@ public class Direction {
     }
 
     public Direction left() {
-        if(this.equals(Direction.from("N"))) {
+        if (this.equals(Direction.from("N"))) {
             return Direction.from("W");
         } else if (this.equals(Direction.from("E"))) {
             return Direction.from("N");
@@ -56,6 +56,13 @@ public class Direction {
         if (this.equals(Direction.from("N"))) {
             return Delta.from(0, 1);
         } else if (this.equals(Direction.from("S"))) {
+            return Delta.from(0, -1);
+        }
+        return Delta.none();
+    }
+
+    public Delta backward() {
+        if (this.equals(Direction.from("N"))) {
             return Delta.from(0, -1);
         }
         return Delta.none();
