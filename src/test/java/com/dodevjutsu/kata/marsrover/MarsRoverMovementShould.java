@@ -13,27 +13,31 @@ public class MarsRoverMovementShould {
 
     @Before
     public void setUp() throws Exception {
-        rover = new MarsRover(0, 1, "N");
+        rover = roverPointingAt(0, 1).facing("N").build();
     }
 
     @Test
     public void move_forward_pointing_north() throws Exception {
-        assertThat(rover.receive("f"), is(new MarsRover(0, 2, "N")));
+        final int x = 0;
+        final int y = 2;
+        final String n = "N";
+
+        assertThat(rover.receive("f"), is(roverPointingAt(x, y).facing(n).build()));
     }
 
     @Test
     public void move_backward_pointing_north() throws Exception {
-        assertThat(rover.receive("b"), is(new MarsRover(0, 0, "N")));
+        assertThat(rover.receive("b"), is(roverPointingAt(0, 0).facing("N").build()));
     }
 
     @Test
     public void turn_left_pointing_north() throws Exception {
-        assertThat(rover.receive("l"), is(new MarsRover(0, 1, "W")));
+        assertThat(rover.receive("l"), is(roverPointingAt(0, 1).facing("W").build()));
     }
 
     @Test
     public void turn_right_pointing_north() throws Exception {
-        assertThat(rover.receive("r"), is(new MarsRover(0, 1, "E")));
+        assertThat(rover.receive("r"), is(roverPointingAt(0, 1).facing("E").build()));
     }
 
     @Test
@@ -48,6 +52,10 @@ public class MarsRoverMovementShould {
                 fail("expected exception");
             }
         }
+    }
+
+    private MarsRoverBuilder roverPointingAt(int x, int y) {
+        return MarsRoverBuilder.aNew().at(new Point(x, y));
     }
 
 }
