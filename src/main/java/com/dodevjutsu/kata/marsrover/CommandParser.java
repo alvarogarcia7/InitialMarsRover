@@ -11,7 +11,7 @@ public class CommandParser {
     }
 
     private Command[] splitCommands(String commandsRepresentation) {
-        List<Command> commandList = Arrays.asList(commandsRepresentation.split("")).stream().map(Command::new).collect(Collectors.toList());
+        List<Command> commandList = Arrays.asList(commandsRepresentation.split("")).stream().map(Command::from).collect(Collectors.toList());
         return commandList.toArray(new Command[commandList.size()]);
     }
 }

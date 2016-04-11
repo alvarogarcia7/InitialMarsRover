@@ -14,4 +14,12 @@ public class Command {
     public String value() {
         return value;
     }
+
+    public static Command from(String value) {
+        if (value.equals("l")) {
+            return Command.left();
+        }
+
+        return new Command(value);
+    }
 }
