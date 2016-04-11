@@ -31,7 +31,6 @@ public class MarsRoverMovementShould {
         assertThat(rover.receive("l"), is(new MarsRover(0, 1, "W")));
     }
 
-
     @Test
     public void turn_right_pointing_north() throws Exception {
         assertThat(rover.receive("r"), is(new MarsRover(0, 1, "E")));
@@ -45,7 +44,7 @@ public class MarsRoverMovementShould {
         } catch (Exception e) {
             exception = e;
         } finally {
-            if(null == exception){
+            if (null == exception) {
                 fail("expected exception");
             }
         }
