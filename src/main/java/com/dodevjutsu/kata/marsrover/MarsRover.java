@@ -4,9 +4,9 @@ public class MarsRover {
     private Point point;
     private Direction direction;
 
-    public MarsRover(Point point, String direction) {
+    public MarsRover(Point point, Direction direction) {
         this.point = point;
-        this.direction = Direction.from(direction);
+        this.direction = direction;
     }
 
     public MarsRover receive(String commands) {
