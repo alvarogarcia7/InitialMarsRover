@@ -40,4 +40,20 @@ public class Command {
     public static Command right() {
         return new Command("r");
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Command command = (Command) o;
+
+        return value != null ? value.equals(command.value) : command.value == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return value != null ? value.hashCode() : 0;
+    }
 }

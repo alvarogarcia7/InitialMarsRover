@@ -13,14 +13,14 @@ public class MarsRover {
 
     public MarsRover receive(String commandsRepresentation) {
         for (Command current : splitter.split(commandsRepresentation).values()) {
-            String command = current.value();
-            if (command.equals("b")) {
+            Command command = current;
+            if (command.equals(Command.backward())) {
                 point = point.add(direction.backward());
-            } else if (command.equals("f")) {
+            } else if (command.equals(Command.forward())) {
                 point = point.add(direction.forward());
-            } else if (command.equals("l")) {
+            } else if (command.equals(Command.left())) {
                 this.direction = direction.left();
-            } else if (command.equals("r")) {
+            } else if (command.equals(Command.right())) {
                 direction = direction.right();
             } else {
                 throw new RuntimeException("this command is not known");
