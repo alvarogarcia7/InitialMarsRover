@@ -5,15 +5,15 @@ public class MarsRover {
     private Direction directionType;
 
     public MarsRover(Point point, String direction) {
-        this.setPoint(point);
+        this.point = point;
         this.directionType = Direction.from(direction);
     }
 
     public MarsRover receive(String commands) {
         if (commands.equals("b")) {
-            setPoint(getPoint().decreaseY());
+            this.point = point.decreaseY();
         } else if (commands.equals("f")){
-            setPoint(getPoint().increaseY());
+            this.point = point.increaseY();
         } else if (commands.equals("l")) {
             this.directionType = Direction.from("W");
         } else if (commands.equals("r")) {
@@ -25,15 +25,7 @@ public class MarsRover {
         return this;
     }
 
-    public Point getPoint() {
-        return point;
-    }
 
-
-    public void setPoint(Point point) {
-        this.point = point;
-    }
-    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
