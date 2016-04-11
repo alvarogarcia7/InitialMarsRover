@@ -16,9 +16,9 @@ public class MarsRover {
 
     public MarsRover receive(String commands) {
         if (commands.equals("b")) {
-            point.decreaseY();
+            point = point.decreaseY();
         } else if (commands.equals("f")){
-            point.increaseY();
+            point = point.increaseY();
         } else if (commands.equals("l")) {
             this.direction = "W";
         } else if (commands.equals("r")) {

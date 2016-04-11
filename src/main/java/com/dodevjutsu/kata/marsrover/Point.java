@@ -29,11 +29,13 @@ public class Point {
         return result;
     }
 
-    void decreaseY() {
+    Point decreaseY() {
         this.y--;
+        return this;
     }
 
-    void increaseY() {
+    Point increaseY() {
         this.y++;
+        return this;
     }
 }
