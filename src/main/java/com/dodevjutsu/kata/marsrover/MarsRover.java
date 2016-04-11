@@ -26,7 +26,6 @@ public class MarsRover {
                 throw new RuntimeException("this command is not known");
             }
         }
-        ;
 
         return this;
     }
