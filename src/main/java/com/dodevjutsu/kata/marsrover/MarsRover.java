@@ -2,7 +2,6 @@ package com.dodevjutsu.kata.marsrover;
 
 public class MarsRover {
     private Point point;
-    private String direction;
     private Direction directionType;
 
     public MarsRover(int x, int y, String direction) {
@@ -46,7 +45,6 @@ public class MarsRover {
     }
 
     public void setDirection(String direction) {
-        this.direction = direction;
         this.directionType = Direction.from(direction);
     }
 
