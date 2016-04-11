@@ -3,26 +3,27 @@ package com.dodevjutsu.kata.marsrover;
 public class MarsRover {
     private Point point;
     private String direction;
+    private Direction directionType;
 
     public MarsRover(int x, int y, String direction) {
         this(new Point(x, y), direction);
     }
 
     public MarsRover(Point point, String direction) {
-        this.point = point;
-        this.direction = direction;
+        this.setPoint(point);
+        this.setDirection(direction);
     }
 
 
     public MarsRover receive(String commands) {
         if (commands.equals("b")) {
-            point = point.decreaseY();
+            setPoint(getPoint().decreaseY());
         } else if (commands.equals("f")){
-            point = point.increaseY();
+            setPoint(getPoint().increaseY());
         } else if (commands.equals("l")) {
-            this.direction = "W";
+            this.setDirection("W");
         } else if (commands.equals("r")) {
-            this.direction = "E";
+            this.setDirection("E");
         } else {
             throw new RuntimeException("this command is not known");
         }
@@ -37,16 +38,32 @@ public class MarsRover {
 
         MarsRover marsRover = (MarsRover) o;
 
-        if (point != null ? !point.equals(marsRover.point) : marsRover.point != null) return false;
-        return direction != null ? direction.equals(marsRover.direction) : marsRover.direction == null;
+        if (getPoint() != null ? !getPoint().equals(marsRover.getPoint()) : marsRover.getPoint() != null) return false;
+        return getDirection() != null ? getDirection().equals(marsRover.getDirection()) : marsRover.getDirection() == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = point != null ? point.hashCode() : 0;
-        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        int result = getPoint() != null ? getPoint().hashCode() : 0;
+        result = 31 * result + (getDirection() != null ? getDirection().hashCode() : 0);
         return result;
     }
 
+    public Point getPoint() {
+        return point;
+    }
+
+    public void setPoint(Point point) {
+        this.point = point;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+        this.directionType = Direction.from(direction);
+    }
 }
