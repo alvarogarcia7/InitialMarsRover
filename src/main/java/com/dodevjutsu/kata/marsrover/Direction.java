@@ -33,6 +33,8 @@ public class Direction {
             return Direction.from("S");
         } else if (this.equals(Direction.from("S"))) {
             return Direction.from("W");
+        } else if (this.equals(Direction.from("W"))) {
+            return Direction.from("N");
         }
         throw new RuntimeException("");
     }
