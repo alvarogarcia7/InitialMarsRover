@@ -24,4 +24,23 @@ public class Delta {
     public int y() {
         return y;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Delta delta = (Delta) o;
+
+        if (x != delta.x) return false;
+        return y == delta.y;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = x;
+        result = 31 * result + y;
+        return result;
+    }
 }
