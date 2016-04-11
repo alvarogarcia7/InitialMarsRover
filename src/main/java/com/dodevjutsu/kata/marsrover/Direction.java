@@ -40,6 +40,15 @@ public class Direction {
     }
 
     public Direction left() {
-        return Direction.from("W");
+        if(this.equals(Direction.from("N"))) {
+            return Direction.from("W");
+        } else if (this.equals(Direction.from("E"))) {
+            return Direction.from("N");
+        } else if (this.equals(Direction.from("S"))) {
+            return Direction.from("E");
+        } else if (this.equals(Direction.from("W"))) {
+            return Direction.from("S");
+        }
+        throw new RuntimeException("");
     }
 }
