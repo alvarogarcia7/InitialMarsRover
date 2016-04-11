@@ -37,14 +37,14 @@ public class MarsRover {
 
         MarsRover marsRover = (MarsRover) o;
 
-        if (getY() != marsRover.getY()) return false;
+        if (point != null ? !point.equals(marsRover.point) : marsRover.point != null) return false;
         return direction != null ? direction.equals(marsRover.direction) : marsRover.direction == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = getY();
+        int result = point != null ? point.hashCode() : 0;
         result = 31 * result + (direction != null ? direction.hashCode() : 0);
         return result;
     }
