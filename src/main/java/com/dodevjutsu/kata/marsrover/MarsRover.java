@@ -2,7 +2,7 @@ package com.dodevjutsu.kata.marsrover;
 
 public class MarsRover {
     private int y;
-    private final String direction;
+    private String direction;
 
     public MarsRover(int x, int y, String direction) {
         this.y = y;
@@ -12,9 +12,12 @@ public class MarsRover {
     public MarsRover receive(String commands) {
         if (commands.equals("b")) {
             this.y--;
-        } else {
+        } else if (commands.equals("f")){
             this.y++;
+        } else if (commands.equals("l")) {
+            this.direction = "W";
         }
+
         return this;
     }
 

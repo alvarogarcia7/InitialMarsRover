@@ -27,6 +27,6 @@ public class MarsRoverMovementShould {
 
     @Test
     public void turn_left_pointing_north() throws Exception {
-        assertThat(rover.receive("l"), is(new MarsRover(0, 2, "W")));
+        assertThat(rover.receive("l"), is(new MarsRover(0, 1, "W")));
     }
 }
