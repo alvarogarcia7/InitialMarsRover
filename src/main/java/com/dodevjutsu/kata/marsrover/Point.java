@@ -2,7 +2,7 @@ package com.dodevjutsu.kata.marsrover;
 
 public class Point {
     public final int x;
-    public int y;
+    public final int y;
 
     public Point(int x, int y) {
 
@@ -30,12 +30,10 @@ public class Point {
     }
 
     Point decreaseY() {
-        this.y--;
-        return this;
+        return new Point(x, y - 1);
     }
 
     Point increaseY() {
-        this.y++;
-        return this;
+        return new Point(x, y + 1);
     }
 }
