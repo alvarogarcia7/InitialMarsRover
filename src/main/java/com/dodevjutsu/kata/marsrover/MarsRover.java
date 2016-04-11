@@ -1,19 +1,24 @@
 package com.dodevjutsu.kata.marsrover;
 
 public class MarsRover {
-    private int y;
+    private Point point;
     private String direction;
 
     public MarsRover(int x, int y, String direction) {
-        this.y = y;
+        this(new Point(x, y), direction);
+    }
+
+    public MarsRover(Point point, String direction) {
+        this.point = point;
         this.direction = direction;
     }
 
+
     public MarsRover receive(String commands) {
         if (commands.equals("b")) {
-            this.y--;
+            this.setY(this.getY() - 1);
         } else if (commands.equals("f")){
-            this.y++;
+            this.setY(this.getY() + 1);
         } else if (commands.equals("l")) {
             this.direction = "W";
         } else if (commands.equals("r")) {
@@ -32,15 +37,23 @@ public class MarsRover {
 
         MarsRover marsRover = (MarsRover) o;
 
-        if (y != marsRover.y) return false;
+        if (getY() != marsRover.getY()) return false;
         return direction != null ? direction.equals(marsRover.direction) : marsRover.direction == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = y;
+        int result = getY();
         result = 31 * result + (direction != null ? direction.hashCode() : 0);
         return result;
+    }
+
+    public int getY() {
+        return point.y;
+    }
+
+    public void setY(int y) {
+        this.point.y = y;
     }
 }
