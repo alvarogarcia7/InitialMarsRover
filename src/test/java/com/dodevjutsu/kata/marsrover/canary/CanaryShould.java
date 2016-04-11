@@ -1,4 +1,4 @@
-package com.dodevjutsu.kata.marsrover;
+package com.dodevjutsu.kata.marsrover.canary;
 
 import org.junit.Test;
 
