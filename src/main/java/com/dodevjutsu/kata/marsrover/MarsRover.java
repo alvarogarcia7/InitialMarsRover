@@ -16,9 +16,9 @@ public class MarsRover {
 
     public MarsRover receive(String commands) {
         if (commands.equals("b")) {
-            this.setY(this.getY() - 1);
+            decreaseY();
         } else if (commands.equals("f")){
-            this.setY(this.getY() + 1);
+            increaseY();
         } else if (commands.equals("l")) {
             this.direction = "W";
         } else if (commands.equals("r")) {
@@ -28,6 +28,14 @@ public class MarsRover {
         }
 
         return this;
+    }
+
+    private void increaseY() {
+        this.setY(this.getY() + 1);
+    }
+
+    private void decreaseY() {
+        this.setY(this.getY() - 1);
     }
 
     @Override
