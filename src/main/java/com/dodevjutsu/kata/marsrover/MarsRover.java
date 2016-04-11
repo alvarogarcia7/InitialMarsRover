@@ -8,7 +8,7 @@ public class MarsRover {
     }
 
     public MarsRover receive(String commands) {
-        this.y = 1;
+        this.y++;
         return this;
     }
 
