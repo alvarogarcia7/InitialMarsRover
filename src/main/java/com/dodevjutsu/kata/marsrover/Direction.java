@@ -19,7 +19,6 @@ public class Direction {
         Direction direction = (Direction) o;
 
         return value != null ? value.equals(direction.value) : direction.value == null;
-
     }
 
     @Override

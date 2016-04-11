@@ -5,7 +5,6 @@ public class Point {
     public final int y;
 
     public Point(int x, int y) {
-
         this.x = x;
         this.y = y;
     }
@@ -19,7 +18,6 @@ public class Point {
 
         if (x != point.x) return false;
         return y == point.y;
-
     }
 
     @Override
