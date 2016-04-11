@@ -15,7 +15,7 @@ public class MarsRover {
         } else if (commands.equals("f")){
             this.point = point.increaseY();
         } else if (commands.equals("l")) {
-            this.direction = Direction.from("W");
+            this.direction = direction.left();
         } else if (commands.equals("r")) {
             direction = direction.right();
         } else {

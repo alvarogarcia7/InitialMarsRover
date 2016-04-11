@@ -33,4 +33,8 @@ public class Direction {
             return Direction.from("S");
         }
     }
+
+    public Direction left() {
+        return Direction.from("W");
+    }
 }
