@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class DirectionBackwardShould {
+public class BackwardShould {
 
     @Test
     public void when_facing_north() throws Exception {
