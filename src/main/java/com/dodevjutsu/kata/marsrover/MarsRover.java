@@ -3,13 +3,16 @@ package com.dodevjutsu.kata.marsrover;
 public class MarsRover {
     private Point point;
     private Direction direction;
+    private final CommandParser splitter;
 
     public MarsRover(Point point, Direction direction, CommandParser splitter) {
         this.point = point;
         this.direction = direction;
+        this.splitter = splitter;
     }
 
     public MarsRover receive(String commands) {
+        splitter.split(commands);
         if (commands.equals("b")) {
             point = point.add(direction.backward());
         } else if (commands.equals("f")) {

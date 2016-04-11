@@ -2,6 +2,7 @@ package com.dodevjutsu.kata.marsrover;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -96,9 +97,9 @@ public class MarsRoverMovementShould {
 
     @Test
     public void split_commands_in_several() throws Exception {
-        String commands="";
+        String commands = "l";
         CommandParser splitter = Mockito.mock(CommandParser.class);
-        MarsRover rover = new MarsRover(null, null, splitter);
+        MarsRover rover = new MarsRover(null, Mockito.mock(Direction.class), splitter);
 
         rover.receive(commands);
 
