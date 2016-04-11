@@ -59,7 +59,7 @@ public class MarsRover {
     }
 
     public String getDirection() {
-        return direction;
+        return directionType.value();
     }
 
     public void setDirection(String direction) {
