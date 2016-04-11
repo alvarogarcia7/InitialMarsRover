@@ -43,24 +43,6 @@ public class MarsRoverMovementShould {
     }
 
     @Test
-    public void turn_right_pointing_east() throws Exception {
-        final MarsRoverBuilder rover = roverPointingAt(0, 1);
-        assertThat(rover.facing("E").build().receive("r"), is(rover.facing("S").build()));
-    }
-
-    @Test
-    public void turn_right_pointing_south() throws Exception {
-        final MarsRoverBuilder rover = roverPointingAt(0, 1);
-        assertThat(rover.facing("S").build().receive("r"), is(rover.facing("W").build()));
-    }
-
-    @Test
-    public void turn_right_pointing_west() throws Exception {
-        final MarsRoverBuilder rover = roverPointingAt(0, 1);
-        assertThat(rover.facing("W").build().receive("r"), is(rover.facing("N").build()));
-    }
-
-    @Test
     public void turn_left_pointing_west() throws Exception {
         final MarsRoverBuilder rover = roverPointingAt(0, 1);
         assertThat(rover.facing("W").build().receive("l"), is(rover.facing("S").build()));
