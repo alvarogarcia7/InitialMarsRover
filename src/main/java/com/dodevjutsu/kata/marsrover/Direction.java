@@ -25,4 +25,12 @@ public class Direction {
     public int hashCode() {
         return value != null ? value.hashCode() : 0;
     }
+
+    public Direction right() {
+        if(this.equals(Direction.from("N"))) {
+            return Direction.from("E");
+        } else {
+            return Direction.from("S");
+        }
+    }
 }
