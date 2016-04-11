@@ -14,7 +14,6 @@ public class MarsRover {
         this.setDirection(direction);
     }
 
-
     public MarsRover receive(String commands) {
         if (commands.equals("b")) {
             setPoint(getPoint().decreaseY());
@@ -31,32 +30,16 @@ public class MarsRover {
         return this;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        MarsRover marsRover = (MarsRover) o;
-
-        if (getPoint() != null ? !getPoint().equals(marsRover.getPoint()) : marsRover.getPoint() != null) return false;
-        return getDirection() != null ? getDirection().equals(marsRover.getDirection()) : marsRover.getDirection() == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getPoint() != null ? getPoint().hashCode() : 0;
-        result = 31 * result + (getDirection() != null ? getDirection().hashCode() : 0);
-        return result;
-    }
-
     public Point getPoint() {
         return point;
     }
 
+
     public void setPoint(Point point) {
         this.point = point;
     }
+
+
 
     public String getDirection() {
         return directionType.value();
@@ -65,5 +48,24 @@ public class MarsRover {
     public void setDirection(String direction) {
         this.direction = direction;
         this.directionType = Direction.from(direction);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MarsRover marsRover = (MarsRover) o;
+
+        if (point != null ? !point.equals(marsRover.point) : marsRover.point != null) return false;
+        return directionType != null ? directionType.equals(marsRover.directionType) : marsRover.directionType == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = point != null ? point.hashCode() : 0;
+        result = 31 * result + (directionType != null ? directionType.hashCode() : 0);
+        return result;
     }
 }
