@@ -83,6 +83,17 @@ public class MarsRoverMovementShould {
         verify(direction).backward();
     }
 
+
+    @Test
+    public void forward_in_any_case() throws Exception {
+        final Direction direction = Mockito.mock(Direction.class);
+        MarsRover rover = new MarsRover(Mockito.mock(Point.class), direction);
+
+        rover.receive("f");
+
+        verify(direction).forward();
+    }
+
     @Test
     public void fail_when_a_command_is_not_known() throws Exception {
         Exception exception = null;
