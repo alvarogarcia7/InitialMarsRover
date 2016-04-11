@@ -16,6 +16,8 @@ public class MarsRover {
             this.y++;
         } else if (commands.equals("l")) {
             this.direction = "W";
+        } else {
+            throw new RuntimeException("this command is not known");
         }
 
         return this;
