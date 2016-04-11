@@ -12,6 +12,11 @@ public class DirectionBackwardShould {
         assertThat(actFacing("N"), is(delta(0, -1)));
     }
 
+    @Test
+    public void when_facing_south() throws Exception {
+        assertThat(actFacing("S"), is(delta(0, 1)));
+    }
+
     private Delta actFacing(String n) {
         return Direction.from(n).backward();
     }
