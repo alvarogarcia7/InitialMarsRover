@@ -22,11 +22,7 @@ public abstract class Direction {
     public abstract Coordinates moveForward(Coordinates coordinates);
 
     public Coordinates moveBackward(Coordinates coordinates) {
-        if (value.equals("N")) {
-            return coordinates.add(Coordinates.at(0, -1));
-        } else {
-            return coordinates.add(Coordinates.at(-1, 0));
-        }
+        throw new RuntimeException("implement this step");
     }
 
     @Override
