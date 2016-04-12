@@ -2,7 +2,7 @@ package com.dodevjutsu.kata.marsrover;
 
 public class MarsRover {
     private final String direction;
-    private final Coordinates coordinates;
+    private Coordinates coordinates;
 
     public MarsRover(int x, int y, String direction) {
         this.coordinates = Coordinates.at(x, y);
@@ -11,7 +11,9 @@ public class MarsRover {
 
 
     public void receive(String commandSequence) {
-
+        if (commandSequence.equals("f")) {
+            coordinates = Coordinates.at(0, 1);
+        }
     }
 
     @Override

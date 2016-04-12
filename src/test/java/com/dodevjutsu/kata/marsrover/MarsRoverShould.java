@@ -18,4 +18,13 @@ public class MarsRoverShould {
 
         assertThat(rover, is(new MarsRover(0, 0, "N")));
     }
+
+    @Test
+    public void moving_forward_when_facing_north() throws Exception {
+        final MarsRover rover = new MarsRover(0, 0, "N");
+
+        rover.receive("f");
+
+        assertThat(rover, is(new MarsRover(0, 1, "N")));
+    }
 }
