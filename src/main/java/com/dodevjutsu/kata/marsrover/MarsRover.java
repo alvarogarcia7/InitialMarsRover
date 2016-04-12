@@ -12,7 +12,7 @@ public class MarsRover {
     }
 
 
-    public void receive(String commands) {
+    public void receive(String commandSequence) {
 
     }
 
