@@ -26,4 +26,13 @@ public class MarsRoverMovingBackwardShould {
 
         assertThat(rover, is(marsRoverAt(-1, 0, "E")));
     }
+
+    @Test
+    public void when_facing_south() throws Exception {
+        final MarsRover rover = marsRoverAt(0, 0, "S");
+
+        rover.receive("b");
+
+        assertThat(rover, is(marsRoverAt(0, 1, "S")));
+    }
 }
