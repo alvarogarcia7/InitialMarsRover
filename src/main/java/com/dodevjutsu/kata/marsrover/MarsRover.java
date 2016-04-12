@@ -1,12 +1,13 @@
 package com.dodevjutsu.kata.marsrover;
 
 public class MarsRover {
-    private final String direction;
+    private String direction;
+    private Direction directionType;
     private Coordinates coordinates;
 
     public MarsRover(int x, int y, String direction) {
         this.coordinates = Coordinates.at(x, y);
-        this.direction = direction;
+        this.setDirection(direction);
     }
 
 
@@ -20,7 +21,7 @@ public class MarsRover {
     }
 
     private void moveBackward() {
-        if (direction.equals("N")) {
+        if (getDirection().equals("N")) {
             coordinates = coordinates.add(Coordinates.at(0, -1));
         } else {
             coordinates = coordinates.add(Coordinates.at(-1, 0));
@@ -28,13 +29,13 @@ public class MarsRover {
     }
 
     private void moveForward() {
-        if (direction.equals("N")) {
+        if (getDirection().equals("N")) {
             coordinates = coordinates.add(Coordinates.at(0, 1));
-        } else if (direction.equals("E")) {
+        } else if (getDirection().equals("E")) {
             coordinates = coordinates.add(Coordinates.at(1, 0));
-        } else if (direction.equals("S")) {
+        } else if (getDirection().equals("S")) {
             coordinates = coordinates.add(Coordinates.at(0, -1));
-        } else if (direction.equals("W")) {
+        } else if (getDirection().equals("W")) {
             coordinates = coordinates.add(Coordinates.at(-1, 0));
         }
     }
@@ -46,14 +47,14 @@ public class MarsRover {
 
         MarsRover rover = (MarsRover) o;
 
-        if (direction != null ? !direction.equals(rover.direction) : rover.direction != null) return false;
+        if (getDirection() != null ? !getDirection().equals(rover.getDirection()) : rover.getDirection() != null) return false;
         return coordinates != null ? coordinates.equals(rover.coordinates) : rover.coordinates == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = direction != null ? direction.hashCode() : 0;
+        int result = getDirection() != null ? getDirection().hashCode() : 0;
         result = 31 * result + (coordinates != null ? coordinates.hashCode() : 0);
         return result;
     }
@@ -61,9 +62,18 @@ public class MarsRover {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("MarsRover{");
-        sb.append("direction='").append(direction).append('\'');
+        sb.append("direction='").append(getDirection()).append('\'');
         sb.append(", coordinates=").append(coordinates);
         sb.append('}');
         return sb.toString();
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.directionType = Direction.create(direction);
+        this.direction = direction;
     }
 }
