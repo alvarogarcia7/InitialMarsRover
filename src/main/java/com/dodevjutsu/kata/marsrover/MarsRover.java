@@ -1,7 +1,6 @@
 package com.dodevjutsu.kata.marsrover;
 
 public class MarsRover {
-    private String direction;
     private Direction directionType;
     private Coordinates coordinates;
 
@@ -69,11 +68,10 @@ public class MarsRover {
     }
 
     public String getDirection() {
-        return direction;
+        return directionType.value();
     }
 
     public void setDirection(String direction) {
         this.directionType = Direction.create(direction);
-        this.direction = direction;
     }
 }

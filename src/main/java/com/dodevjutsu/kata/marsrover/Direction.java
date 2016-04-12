@@ -10,4 +10,8 @@ public class Direction {
     public static Direction create(String value) {
         return new Direction(value);
     }
+
+    public String value() {
+        return value;
+    }
 }
