@@ -22,6 +22,8 @@ public class MarsRover {
             coordinates = coordinates.add(Coordinates.at(0, 1));
         } else if (direction.equals("E")) {
             coordinates = coordinates.add(Coordinates.at(1, 0));
+        } else if (direction.equals("S")) {
+            coordinates = coordinates.add(Coordinates.at(0, -1));
         }
     }
 
