@@ -34,14 +34,14 @@ public class MarsRover {
 
         MarsRover rover = (MarsRover) o;
 
-        if (direction.value() != null ? !direction.value().equals(rover.direction.value()) : rover.direction.value() != null) return false;
+        if (direction != null ? !direction.equals(rover.direction) : rover.direction != null) return false;
         return coordinates != null ? coordinates.equals(rover.coordinates) : rover.coordinates == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = direction.value() != null ? direction.value().hashCode() : 0;
+        int result = direction != null ? direction.hashCode() : 0;
         result = 31 * result + (coordinates != null ? coordinates.hashCode() : 0);
         return result;
     }
@@ -49,10 +49,9 @@ public class MarsRover {
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("MarsRover{");
-        sb.append("direction='").append(direction.value()).append('\'');
+        sb.append("direction=").append(direction);
         sb.append(", coordinates=").append(coordinates);
         sb.append('}');
         return sb.toString();
     }
-
 }
