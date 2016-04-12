@@ -28,6 +28,15 @@ public class MarsRoverShould {
         assertThat(rover, is(marsRoverAt(0, 1, "N")));
     }
 
+    @Test
+    public void moving_forward_when_facing_north_from_another_starting_point() throws Exception {
+        final MarsRover rover = marsRoverAt(0, 4, "N");
+
+        rover.receive("f");
+
+        assertThat(rover, is(marsRoverAt(0, 5, "N")));
+    }
+
     private MarsRover marsRoverAt(int x, int y, String direction) {
         return new MarsRover(x, y, direction);
     }

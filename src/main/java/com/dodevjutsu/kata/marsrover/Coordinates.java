@@ -13,6 +13,10 @@ public class Coordinates {
         return new Coordinates(x, y);
     }
 
+    public Coordinates add(Coordinates other) {
+        return Coordinates.at(this.x + other.x, this.y + other.y);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

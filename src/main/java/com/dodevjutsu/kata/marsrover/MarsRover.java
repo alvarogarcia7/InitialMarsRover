@@ -12,7 +12,7 @@ public class MarsRover {
 
     public void receive(String commandSequence) {
         if (commandSequence.equals("f")) {
-            coordinates = Coordinates.at(0, 1);
+            coordinates = coordinates.add(Coordinates.at(0, 1));
         }
     }
 
