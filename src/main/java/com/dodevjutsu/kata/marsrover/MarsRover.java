@@ -11,10 +11,12 @@ public class MarsRover {
 
 
     public void receive(String commandSequence) {
-        if (!commandSequence.equals("f")) {
-            return;
+        if (commandSequence.equals("f")) {
+            moveForward();
+        } else if (commandSequence.equals("b")) {
+            coordinates = coordinates.add(Coordinates.at(0, -1));
         }
-        moveForward();
+
     }
 
     private void moveForward() {
