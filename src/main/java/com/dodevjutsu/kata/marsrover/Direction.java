@@ -1,28 +1,25 @@
 package com.dodevjutsu.kata.marsrover;
 
-public class Direction {
+public abstract class Direction {
     private final String value;
 
-    public Direction(String value) {
+    protected Direction(String value) {
         this.value = value;
     }
 
     public static Direction create(String value) {
-        return new Direction(value);
+        if ("N".equals(value)) {
+            return new North(value);
+        } else if ("E".equals(value)) {
+            return new East(value);
+        } else if ("S".equals(value)) {
+            return new South(value);
+        } else {
+            return new West(value);
+        }
     }
 
-    public Coordinates moveForward(Coordinates coordinates) {
-        if (value.equals("N")) {
-            return coordinates.add(Coordinates.at(0, 1));
-        } else if (value.equals("E")) {
-            return coordinates.add(Coordinates.at(1, 0));
-        } else if (value.equals("S")) {
-            return coordinates.add(Coordinates.at(0, -1));
-        } else if (value.equals("W")) {
-            return coordinates.add(Coordinates.at(-1, 0));
-        }
-        return null;
-    }
+    public abstract Coordinates moveForward(Coordinates coordinates);
 
     public Coordinates moveBackward(Coordinates coordinates) {
         if (value.equals("N")) {
