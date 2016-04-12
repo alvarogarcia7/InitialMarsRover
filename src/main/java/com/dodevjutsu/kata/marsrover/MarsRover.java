@@ -1,13 +1,11 @@
 package com.dodevjutsu.kata.marsrover;
 
 public class MarsRover {
-    private final int x;
-    private final int y;
     private final String direction;
+    private final Coordinates coordinates;
 
     public MarsRover(int x, int y, String direction) {
-        this.x = x;
-        this.y = y;
+        this.coordinates = Coordinates.at(x, y);
         this.direction = direction;
     }
 
@@ -23,26 +21,23 @@ public class MarsRover {
 
         MarsRover rover = (MarsRover) o;
 
-        if (x != rover.x) return false;
-        if (y != rover.y) return false;
-        return direction != null ? direction.equals(rover.direction) : rover.direction == null;
+        if (direction != null ? !direction.equals(rover.direction) : rover.direction != null) return false;
+        return coordinates != null ? coordinates.equals(rover.coordinates) : rover.coordinates == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = x;
-        result = 31 * result + y;
-        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        int result = direction != null ? direction.hashCode() : 0;
+        result = 31 * result + (coordinates != null ? coordinates.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("MarsRover{");
-        sb.append("x=").append(x);
-        sb.append(", y=").append(y);
-        sb.append(", direction='").append(direction).append('\'');
+        sb.append("direction='").append(direction).append('\'');
+        sb.append(", coordinates=").append(coordinates);
         sb.append('}');
         return sb.toString();
     }
