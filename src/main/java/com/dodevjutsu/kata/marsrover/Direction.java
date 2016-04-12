@@ -29,4 +29,12 @@ public class Direction {
         }
         return null;
     }
+
+    public Coordinates moveBackward(Coordinates coordinates) {
+        if (this.value().equals("N")) {
+            return coordinates.add(Coordinates.at(0, -1));
+        } else {
+            return coordinates.add(Coordinates.at(-1, 0));
+        }
+    }
 }

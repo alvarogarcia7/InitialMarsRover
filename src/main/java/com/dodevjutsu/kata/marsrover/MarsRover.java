@@ -20,11 +20,7 @@ public class MarsRover {
     }
 
     private void moveBackward() {
-        if (direction.value().equals("N")) {
-            coordinates = coordinates.add(Coordinates.at(0, -1));
-        } else {
-            coordinates = coordinates.add(Coordinates.at(-1, 0));
-        }
+        coordinates = direction.moveBackward(coordinates);
     }
 
     private void moveForward() {
