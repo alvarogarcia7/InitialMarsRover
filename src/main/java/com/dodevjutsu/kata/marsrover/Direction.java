@@ -21,9 +21,7 @@ public abstract class Direction {
 
     public abstract Coordinates moveForward(Coordinates coordinates);
 
-    public Coordinates moveBackward(Coordinates coordinates) {
-        throw new RuntimeException("implement this step");
-    }
+    public abstract Coordinates moveBackward(Coordinates coordinates);
 
     @Override
     public boolean equals(Object o) {
