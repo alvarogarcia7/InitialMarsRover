@@ -9,4 +9,9 @@ public class West extends Direction {
     public Coordinates moveForward(Coordinates coordinates) {
         return coordinates.add(Coordinates.at(-1, 0));
     }
+
+    @Override
+    public Coordinates moveBackward(Coordinates coordinates) {
+        return coordinates.add(Coordinates.at(1, 0));
+    }
 }
