@@ -14,13 +14,17 @@ public class MarsRover {
         if (commandSequence.equals("f")) {
             moveForward();
         } else if (commandSequence.equals("b")) {
-            if (direction.equals("N")) {
-                coordinates = coordinates.add(Coordinates.at(0, -1));
-            } else {
-                coordinates = coordinates.add(Coordinates.at(-1, 0));
-            }
+            moveBackward();
         }
 
+    }
+
+    private void moveBackward() {
+        if (direction.equals("N")) {
+            coordinates = coordinates.add(Coordinates.at(0, -1));
+        } else {
+            coordinates = coordinates.add(Coordinates.at(-1, 0));
+        }
     }
 
     private void moveForward() {
