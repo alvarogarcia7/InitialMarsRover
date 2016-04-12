@@ -28,15 +28,7 @@ public class MarsRover {
     }
 
     private void moveForward() {
-        if (direction.value().equals("N")) {
-            coordinates = coordinates.add(Coordinates.at(0, 1));
-        } else if (direction.value().equals("E")) {
-            coordinates = coordinates.add(Coordinates.at(1, 0));
-        } else if (direction.value().equals("S")) {
-            coordinates = coordinates.add(Coordinates.at(0, -1));
-        } else if (direction.value().equals("W")) {
-            coordinates = coordinates.add(Coordinates.at(-1, 0));
-        }
+        coordinates = direction.moveForward(coordinates);
     }
 
     @Override
