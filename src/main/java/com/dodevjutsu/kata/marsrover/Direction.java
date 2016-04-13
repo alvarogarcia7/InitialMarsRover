@@ -7,19 +7,19 @@ public class Direction {
         this.direction = direction;
     }
 
-    public static Direction facing(String direction) {
+    public static Direction create(String direction) {
         return new Direction(direction);
     }
 
     public Direction rotateLeft() {
         if (direction.equals("N")) {
-            return facing("W");
+            return create("W");
         } else if(direction.equals("W")) {
-            return facing("S");
+            return create("S");
         } else if(direction.equals("E")) {
-            return facing("N");
+            return create("N");
         } else {
-            return facing("E");
+            return create("E");
         }
     }
 

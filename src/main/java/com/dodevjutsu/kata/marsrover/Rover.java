@@ -6,10 +6,10 @@ public class Rover {
     private final int y;
     private Direction direction;
 
-    public Rover(int x, int y, String direction) {
+    public Rover(int x, int y, String value) {
         this.x = x;
         this.y = y;
-        this.direction = Direction.facing(direction);
+        this.direction = Direction.create(value);
     }
 
     public void execute(String sequence) {
