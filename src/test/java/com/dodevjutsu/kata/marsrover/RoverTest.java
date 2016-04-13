@@ -44,6 +44,15 @@ public class RoverTest {
         assertEquals(roverLandedFacing("S"), rover);
     }
 
+    @Test
+    public void rotateLeftWhenFacingEast() {
+        rover = roverLandedFacing("E");
+
+        rover.execute("l");
+
+        assertEquals(roverLandedFacing("N"), rover);
+    }
+
     private Rover roverLandedFacing(String direction) {
         return new Rover(1, 2, direction);
     }
