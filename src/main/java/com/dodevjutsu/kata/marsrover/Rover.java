@@ -16,6 +16,8 @@ public class Rover {
         if(sequence.equals("l")){
             if (this.direction.equals("N")) {
                 this.direction = "W";
+            } else if(this.direction.equals("W")) {
+                this.direction = "S";
             } else {
                 this.direction = "E";
             }
