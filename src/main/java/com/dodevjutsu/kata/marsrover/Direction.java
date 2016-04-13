@@ -3,19 +3,23 @@ package com.dodevjutsu.kata.marsrover;
 public class Direction {
     private final String direction;
 
-    public Direction(String direction) {
+    private Direction(String direction) {
         this.direction = direction;
+    }
+
+    public static Direction facing(String direction) {
+        return new Direction(direction);
     }
 
     public Direction rotateLeft() {
         if (direction.equals("N")) {
-            return new Direction("W");
+            return facing("W");
         } else if(direction.equals("W")) {
-            return new Direction("S");
+            return facing("S");
         } else if(direction.equals("E")) {
-            return new Direction("N");
+            return facing("N");
         } else {
-            return new Direction("E");
+            return facing("E");
         }
     }
 

@@ -9,7 +9,7 @@ public class Rover {
     public Rover(int x, int y, String direction) {
         this.x = x;
         this.y = y;
-        this.direction = new Direction(direction);
+        this.direction = Direction.facing(direction);
     }
 
     public void execute(String sequence) {
