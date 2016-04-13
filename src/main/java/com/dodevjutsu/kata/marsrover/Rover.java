@@ -14,7 +14,11 @@ public class Rover {
 
     public void execute(String sequence) {
         if(sequence.equals("l")){
-            this.direction = "W";
+            if (this.direction.equals("N")) {
+                this.direction = "W";
+            } else {
+                this.direction = "E";
+            }
         }
     }
 

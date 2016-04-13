@@ -22,4 +22,12 @@ public class RoverTest {
 
         assertEquals(new Rover(1, 2 , "W"), rover);
     }
+    @Test
+    public void rotateLeftWhenFacingSouth() {
+        Rover rover = new Rover(1, 2, "S");
+
+        rover.execute("l");
+
+        assertEquals(new Rover(1, 2, "E"), rover);
+    }
 }
