@@ -5,9 +5,15 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class RoverTest {
+    Rover rover;
+
+    public Rover createRover(int x, int y, String direction){
+        return new Rover(x, y, direction);
+    }
+
     @Test
     public void ReceiveEmptySequence(){
-        Rover rover = new Rover(1, 2, "N");
+        rover = this.createRover(1, 2, "N");
 
         rover.execute("");
 
@@ -16,16 +22,16 @@ public class RoverTest {
 
     @Test
     public void rotateLeftWhenFacingNorth(){
-        Rover rover = new Rover(1, 2, "N");
+        rover = this.createRover(1, 2, "N");
 
         rover.execute("l");
 
         assertEquals(new Rover(1, 2 , "W"), rover);
     }
-    
+
     @Test
     public void rotateLeftWhenFacingSouth() {
-        Rover rover = new Rover(1, 2, "S");
+        rover = this.createRover(1, 2, "S");
 
         rover.execute("l");
 
