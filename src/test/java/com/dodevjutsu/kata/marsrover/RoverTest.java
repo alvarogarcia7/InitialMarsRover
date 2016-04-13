@@ -15,13 +15,14 @@ public class RoverTest {
     }
 
     @Test
-    public void ReceiveSequenceOfOneCommand(){
+    public void rotateLeftWhenFacingNorth(){
         Rover rover = new Rover(1, 2, "N");
 
         rover.execute("l");
 
         assertEquals(new Rover(1, 2 , "W"), rover);
     }
+    
     @Test
     public void rotateLeftWhenFacingSouth() {
         Rover rover = new Rover(1, 2, "S");
