@@ -4,7 +4,7 @@ public class Rover {
 
     private final int x;
     private final int y;
-    private final String direction;
+    private String direction;
 
     public Rover(int x, int y, String direction) {
         this.x = x;
@@ -13,7 +13,9 @@ public class Rover {
     }
 
     public void execute(String sequence) {
-
+        if(sequence.equals("l")){
+            this.direction = "W";
+        }
     }
 
     @Override

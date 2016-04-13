@@ -14,5 +14,12 @@ public class RoverTest {
         assertEquals(new Rover(1, 2, "N"), rover);
     }
 
+    @Test
+    public void ReceiveSequenceOfOneCommand(){
+        Rover rover = new Rover(1, 2, "N");
 
+        rover.execute("l");
+
+        assertEquals(new Rover(1, 2 , "W"), rover);
+    }
 }
