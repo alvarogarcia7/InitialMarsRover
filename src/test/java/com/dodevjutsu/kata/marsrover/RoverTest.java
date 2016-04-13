@@ -8,10 +8,6 @@ import static org.junit.Assert.assertThat;
 public class RoverTest {
     Rover rover;
 
-    private Rover roverLandedFacing(String direction) {
-        return new Rover(1, 2, direction);
-    }
-
     @Test
     public void ReceiveEmptySequence(){
         rover = roverLandedFacing("N");
@@ -37,5 +33,9 @@ public class RoverTest {
         rover.execute("l");
 
         assertEquals(roverLandedFacing("E"), rover);
+    }
+
+    private Rover roverLandedFacing(String direction) {
+        return new Rover(1, 2, direction);
     }
 }
