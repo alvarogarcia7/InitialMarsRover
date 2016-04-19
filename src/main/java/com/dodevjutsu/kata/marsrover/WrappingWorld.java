@@ -11,6 +11,8 @@ public class WrappingWorld extends World {
 
     @Override
     public Coordinates apply(int x, int y) {
-        return new Coordinates(x % width, y % height);
+        final int newX = x % width;
+        final int newY = y % height;
+        return new Coordinates(newX, newY);
     }
 }
