@@ -46,6 +46,28 @@ public class Coordinates {
     }
 
     public Coordinates at(World world) {
-        return world.apply(this.x, this.y);
+        return world.apply(new CoordinatesData(this.x, this.y));
+    }
+
+    public static Coordinates from(CoordinatesData coordinatesData) {
+        return new Coordinates(coordinatesData.x, coordinatesData.y);
+    }
+
+    public class CoordinatesData {
+        private final int x;
+        private final int y;
+
+        public CoordinatesData(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public int x() {
+            return x;
+        }
+
+        public int y() {
+            return y;
+        }
     }
 }

@@ -10,9 +10,9 @@ public class WrappingWorld extends World {
     }
 
     @Override
-    public Coordinates apply(int x, int y) {
-        final int newX = x % width;
-        final int newY = y % height;
-        return new Coordinates(newX, newY);
+    public Coordinates apply(Coordinates.CoordinatesData coordinates) {
+        final int newX = coordinates.x() % width;
+        final int newY = coordinates.y() % height;
+        return Coordinates.at(newX, newY);
     }
 }
