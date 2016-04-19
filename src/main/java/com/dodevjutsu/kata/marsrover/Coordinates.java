@@ -49,17 +49,14 @@ public class Coordinates {
         return world.apply(new CoordinatesData(this.x, this.y));
     }
 
-    public static Coordinates from(CoordinatesData coordinatesData) {
-        return new Coordinates(coordinatesData.x, coordinatesData.y);
+    public static Coordinates from(Coordinates coordinates) {
+        return new Coordinates(coordinates.x, coordinates.y);
     }
 
-    public class CoordinatesData {
-        private final int x;
-        private final int y;
+    public class CoordinatesData extends Coordinates {
 
-        public CoordinatesData(int x, int y) {
-            this.x = x;
-            this.y = y;
+        private CoordinatesData(int x, int y) {
+            super(x, y);
         }
 
         public int x() {
