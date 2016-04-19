@@ -4,7 +4,7 @@ public class MarsRover {
     private Direction direction;
     private Coordinates coordinates;
 
-    public MarsRover(int x, int y, String direction) {
+    public MarsRover(int x, int y, String direction, World world) {
         this.coordinates = Coordinates.at(x, y);
         this.direction = Direction.create(direction);
     }
