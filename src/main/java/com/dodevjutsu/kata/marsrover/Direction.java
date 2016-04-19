@@ -46,4 +46,10 @@ public abstract class Direction {
         sb.append('}');
         return sb.toString();
     }
+
+    public Coordinates moveForward(Coordinates coordinates, World world) {
+        Coordinates possibleCoordinates = this.moveForward(coordinates);
+        Coordinates newCoordinates = possibleCoordinates.at(world);
+        return newCoordinates;
+    }
 }

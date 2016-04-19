@@ -1,10 +1,12 @@
 package com.dodevjutsu.kata.marsrover;
 
 public class MarsRover {
+    private final World world;
     private Direction direction;
     private Coordinates coordinates;
 
     public MarsRover(int x, int y, String direction, World world) {
+        this.world = world;
         this.coordinates = Coordinates.at(x, y);
         this.direction = Direction.create(direction);
     }
@@ -24,7 +26,7 @@ public class MarsRover {
     }
 
     private void moveForward() {
-        coordinates = direction.moveForward(coordinates);
+        coordinates = direction.moveForward(coordinates, world);
     }
 
     @Override

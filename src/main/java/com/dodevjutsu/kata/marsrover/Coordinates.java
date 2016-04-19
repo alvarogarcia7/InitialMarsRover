@@ -44,4 +44,8 @@ public class Coordinates {
         sb.append('}');
         return sb.toString();
     }
+
+    public Coordinates at(World world) {
+        return world.apply(this.x, this.y);
+    }
 }
